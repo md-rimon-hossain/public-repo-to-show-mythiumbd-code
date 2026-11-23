@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="40 40 605 120" width="100%" height="100%">
+  <style>
+    .letter {
+      fill: none;
+      stroke: #ffffff; /* Corrected: Changed all letter strokes to white */
+      stroke-width: 14px;
+      stroke-dasharray: 400;
+      stroke-linecap: round; 
+      stroke-linejoin: round; 
+      will-change: stroke-dashoffset, transform;
+      /* Total Loop Duration expanded to 7.0 Seconds */
+      animation: fullSequence 7s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+    }
+
+    /* Staggered Delay for Letter Write-In and Wave Ripple */
+    .l-1 { animation-delay: 0.00s; }
+    .l-2 { animation-delay: 0.10s; }
+    .l-3 { animation-delay: 0.20s; }
+    .l-4 { animation-delay: 0.30s; }
+    .l-5 { animation-delay: 0.40s; }
+    .l-6 { animation-delay: 0.50s; }
+    .l-7 { animation-delay: 0.60s; }
+
+    /* Single Master Timeline Loop */
+    @keyframes fullSequence {
+      /* STEP 1: Letter Stroke Reveal (0% to 15%) */
+      0% {
+        stroke-dashoffset: 400;
+        transform: translateY(0px);
+      }
+      15% {
+        stroke-dashoffset: 0;
+        transform: translateY(0px);
+      }
+
+      /* STEP 2: Full Text Wave Motion (20% to 50%) */
+      20% {
+        transform: translateY(0px);
+      }
+      35% {
+        transform: translateY(-16px);
+      }
+      50% {
+        transform: translateY(0px);
+      }
+
+      /* STEP 3: Extended Static Hold Pause (50% to 92%) ~2.9s Pause */
+      50%, 92% {
+        stroke-dashoffset: 0;
+        transform: translateY(0px);
+      }
+
+      /* STEP 4: Instant Reset to Restart Animation */
+      100% {
+        stroke-dashoffset: 400;
+        transform: translateY(0px);
+      }
+    }
+  </style>
+
+  <g>
+    <!-- M -->
+    <path class="letter l-1" d="M 50 140 V 60 L 85 115 L 120 60 V 140" />
+    <!-- Y -->
+    <path class="letter l-2" d="M 155 60 L 185 102 V 140 M 215 60 L 185 102" />
+    <!-- T -->
+    <path class="letter l-3" d="M 240 60 H 310 M 275 60 V 140" />
+    <!-- H -->
+    <path class="letter l-4" d="M 335 60 V 140 M 335 100 H 395 M 395 60 V 140" />
+    <!-- I -->
+    <path class="letter l-5" d="M 435 60 V 140" />
+    <!-- U -->
+    <path class="letter l-6" d="M 475 60 V 115 C 475 135, 525 135, 525 115 V 60" />
+    <!-- M -->
+    <path class="letter l-7" d="M 565 140 V 60 L 600 115 L 635 60 V 140" />
+  </g>
+</svg>
